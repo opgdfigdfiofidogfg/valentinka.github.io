@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vалентинка для</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Добавленные стили для положения и размеров кнопки "Нет" */
+    .second-button {
+      position: absolute;
+      right: 39%; /* Измените значение, чтобы подвинуть кнопку "Нет" вправо от центра */
+      transform: translate(-50%, -50%); /* Добавлено, чтобы центрировать кнопку "Нет" относительно своего центра */
+      top: 66.66%; /* Измените значение, чтобы установить начальное положение "Нет" по вертикали (в процентах) */
+      width: 100px; /* Жестко заданный размер по горизонтали */
+      height: 65px; /* Жестко заданный размер по вертикали */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text-above-gif"><nobr>Кристина, я тебя люблю, будешь моей женой?)</nobr></div>
+  <div class="image-container">
+    <img src="https://i.pinimg.com/originals/58/79/ec/5879ecf3e80a04ca4e8ea49975b43494.gif">
+  </div>
+
+  <a href="page2.html">
+    <button class="learn-more">Да</button>
+  </a>
+
+  <button class="learn-more second-button">Нет</button>
+
+  <script>
+    const random = (min, max) => {
+      return min + Math.random() * (max - min);
+    }
+
+    const moveButton = (button) => {
+      const buttonWidth = button.offsetWidth;
+      const buttonHeight = button.offsetHeight;
+
+      const maxX = window.innerWidth - buttonWidth;
+      const maxY = window.innerHeight - buttonHeight;
+
+      const randomX = random(0, maxX);
+      const randomY = random(0, maxY);
+
+      button.style.left = `${randomX}px`;
+      button.style.top = `${randomY}px`;
+    }
+
+    // найдем кнопку "Нет" по классу
+    const noButton = document.querySelector('.second-button');
+    // повесим обработчик событий
+    noButton.addEventListener('mouseenter', () => {
+      moveButton(noButton);
+    });
+
+    // в случае победы выведем:
+    noButton.addEventListener('click', () => {
+      alert('Поздравляю! Это всё равно тебе ничего не дает, у тебя по прежнему нет выбора.');
+      moveButton(noButton); // переместить кнопку "Нет" после клика
+    });
+  </script>
+</body>
+
+</html>

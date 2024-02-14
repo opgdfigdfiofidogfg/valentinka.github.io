@@ -1,0 +1,111 @@
+
+    @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "Rubik", sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      min-height: 100vh;
+      background: url('https://i.pinimg.com/originals/d3/e1/02/d3e102b2760f02e9559953b206b4221c.gif');
+      position: relative; /* Added position relative for proper stacking */
+    }
+    
+    button {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      border: 0;
+      vertical-align: middle;
+      text-decoration: none;
+      font-size: inherit;
+      font-family: inherit;
+    }
+    
+    button.learn-more {
+      font-weight: 600;
+      color: #382b22;
+      text-transform: uppercase;
+      padding: 1.25em 2em;
+      background: #fff0f0;
+      border: 2px solid #b18597;
+      border-radius: 0.75em;
+      transform-style: preserve-3d;
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+      margin-bottom: -300px; /* Новое свойство, чтобы выровнять кнопки */
+    }
+    
+    button.learn-more::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #f9c4d2;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+      transform: translate3d(0, 0.75em, -1em);
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+    
+    button.learn-more:hover {
+      background: #ffe9e9;
+      transform: translate(0, 0.25em);
+    }
+    
+    button.learn-more:hover::before {
+      box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+      transform: translate3d(0, 0.5em, -1em);
+    }
+    
+    button.learn-more:active {
+      background: #ffe9e9;
+      transform: translate(0em, 0.75em);
+    }
+    
+    button.learn-more:active::before {
+      box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+      transform: translate3d(0, 0, -1em);
+    }
+    
+    /* Additional button for demonstration */
+    .second-button {
+      margin-left: 20px;
+      margin-top: 0px; /* Изменено значение, чтобы кнопка была чуть пониже */
+    }
+
+    /* Styles for the image container */
+    .image-container {
+      position: absolute;
+      top: 53%; /* Изменено значение, чтобы поднять гифку */
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Styles for the text above the GIF */
+    .text-above-gif {
+      position: absolute;
+      top: 220px; /* Adjust the top position as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Rubik", sans-serif; /* Set the font to match the buttons */
+      font-size: 4rem;
+      font-weight: 600;
+      color: #382b22;
+    }
+  
